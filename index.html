@@ -67,10 +67,22 @@
 			var fp1 = new Fingerprint2();
 			var fp2 = new Fingerprint2({excludeWebGL: true});
 			var fp3 = new Fingerprint2({excludeWebGL: true, excludeUserAgent: true});
-			var resultFunc = function(result) {
-				var p = document.createElement('p');
-				p.innerHTML = result;
-				container.append(p);
+			var resultFunc = function(result, components) {
+				var resultP = document.createElement('p');
+				resultP.innerHTML = result;
+				
+				var details = "";
+				for (var index in components) {
+					var obj = components[index];
+					var value = obj.value;
+					var line = obj.key + " = " + value.toString().substr(0, 100);
+					details += line + "<br />";
+				}
+				var detailsP = document.createElement('p');
+				detailsP.innerHTML = details;
+				
+				container.append(resultP);
+				container.append(detailsP);
 			}
 			fp1.get(resultFunc);
 			fp2.get(resultFunc);
