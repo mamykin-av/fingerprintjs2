@@ -68,7 +68,7 @@
   <p><code id="time"/></p>
   <p><span id="details"/></p>
   <script>
-    $(document).load(function () {
+    $(window).on('load', function () {
       var d1 = new Date();
       var fp = new Fingerprint2();
       fp.get(function(result, components) {
