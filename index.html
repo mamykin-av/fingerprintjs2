@@ -1,132 +1,87 @@
+<!DOCTYPE HTML>
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Fingerprintjs2</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <style>
-    body{
-      font-family: sans-serif;
-      max-width: 48em;
-      margin: auto;
-      padding: 0 5%;
-      background: #222;
-      color: #fff;
-    }
-    h1 {
-      margin: 2em 0 0;
-    }
-    p {
-      font-size: 1.2em
-    }
-    button {
-      border: none;
-      color: #fff;
-      font-size: 1.2em;
-      background: #27e;
-      padding: 0.5em 0.75em 0.6em;
-      margin: 0em 0em 2em 0em;
-      border-radius: 3px;
-      box-shadow: 0 3px 0 #05c;
-      outline: none;
-    }
-    button:active {
-      transform: translateY(3px);
-      box-shadow: none;
-    }
-    strong {
-      display: block;
-      letter-spacing: 1px;
-      word-wrap: break-word;
-    }
-    input[type=checkbox] {
-		-ms-transform: scale(15);
-		-moz-transform: scale(1.5);
-		-webkit-transform: scale(1.5);
-		-o-transform: scale(1.5);
-		padding: 10px;
-    	margin: 10px;
-    }
-    label {
-		font-size: 1.5em;
-    }
-    @media (min-width: 32em) {
-      h1 {
-        font-size: 4em;
-      }
-      strong {
-        font-size: 1.5em;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div id="container"></div>
-  <h1>Fingerprintjs2</h1>
-  
-  <form>
-    <br />
-    <label title="Specifies the dom element ID to be used for swf embedding"><input type="checkbox" name="swfContainerId" />Изменить ID dom-элемента, который используется для SWF вложения</label><br />
-    <label title="Specifies the path to FontList.sfw"><input type="checkbox" name="swfPath" />Изменить путь к FontList.sfw</label><br />
-    <label title="Specifies an array of user-defined fonts to increase font fingerprint entropy"><input type="checkbox" name="userDefinedFonts" />Изменить массив определённых пользователем шрифтов для увеличения точности определения шрифта</label><br />
-    <label title="User agent should not take part in FP calculation"><input type="checkbox" name="excludeUserAgent" />Исключить из расчёта User Agent при расчёте Fingerprint</label><br />
-    <label title="Browser language"><input type="checkbox" name="excludeLanguage" />Исключить зык браузера</label><br />
-    <label title="Color depth"><input type="checkbox" name="excludeColorDepth" />Исключить глубину цвета</label><br />
-    <label title="Screen resolution"><input type="checkbox" name="excludeScreenResolution" />Исключить разрешение экрана</label><br />
-    <label title="Clude available screen resolution"><input type="checkbox" name="excludeAvailableScreenResolution" />Исключить доступное разрешение экрана</label><br />
-    <label title="User time zone"><input type="checkbox" name="excludeTimezoneOffset" />Исключить часовой пояс пользователя</label><br />
-    <label title="User browser support of session storage"><input type="checkbox" name="excludeSessionStorage" />Исключить определение поддержки браузером хранилища сессий</label><br />
-    <label title="User browser support of IndexedDB"><input type="checkbox" name="excludeIndexedDB" />Исключить определение поддержки индексированной БД браузером</label><br />
-    <label title="IE specific 'AddBehavior' method detection"><input type="checkbox" name="excludeAddBehavior" />Исключить определение уникального метода 'AddBehavior' для IE</label><br />
-    <label title="User browser support of OpenDatabase"><input type="checkbox" name="excludeOpenDatabase" />Исключить определение поддержки браузером OpenDatabase</label><br />
-    <label title="Detection of CPU class"><input type="checkbox" name="excludeCpuClass" />Исключить определение класса процессора</label><br />
-    <label title="Detection of OS platform"><input type="checkbox" name="excludePlatform" />Исключить определение ОС</label><br />
-    <label title="Is DoNotTrack set"><input type="checkbox" name="excludeDoNotTrack" />Исключить определения флага 'Не отслеживать'</label><br />
-    <label title="Skip canvas fingerprinting entirely (you will most likely not need to set this to true)"><input type="checkbox" name="excludeCanvas" />Полностью исключить Canvas из расчёта</label><br />
-    <label title="Skip WebGL fingerprinting"><input type="checkbox" name="excludeWebGL" />Исключить WebGL из расчёта</label><br />
-    <label title="Skip AdBlock detection"><input type="checkbox" name="excludeAdBlock" />Исключить AdBlock из расчёта</label><br />
-    <label title="Skip check if user is trying to hide his browser language"><input type="checkbox" name="excludeHasLiedLanguages" />Исключить эмуляцию языков из расчёта</label><br />
-    <label title="Skip check if user is trying to hide his screen resolution"><input type="checkbox" name="excludeHasLiedResolution" />Исключить эмуляцию хранилища из расчёта</label><br />
-    <label title="Skip check if user is trying to hide his OS info"><input type="checkbox" name="excludeHasLiedOs" />Исключить эмуляцию ОС из расчёта</label><br />
-    <label title="Skip check if user is trying to hide his browser information"><input type="checkbox" name="excludeHasLiedBrowser" />Исключить эмуляцию браузера из расчёта</label><br />
-    <label title="Skip font detection with CSS "side channel""><input type="checkbox" name="excludeJsFonts" />Исключить поддерживаемые JS шрифты</label><br />
-    <label title="Skip font detection with Flash (disabled by default)"><input type="checkbox" name="excludeFlashFonts" />Исключить поддерживаемые Flash шрифты</label><br />
-    <label title="Skip plugin enumeration/detection"><input type="checkbox" name="excludePlugins" />Исключить плагины</label><br />
-    <label title="Skip IE plugin enumeration/detection"><input type="checkbox" name="excludeIEPlugins" />Исключить определение/порядок IE плагинов из расчёта</label><br />
-    <label title="Skip touch screen specific info fingerprinting"><input type="checkbox" name="excludeTouchSupport" />Исключить тачскрин из расчёта</label><br />
-    <label title="Skip device pixel ratio"><input type="checkbox" name="excludePixelRatio" />Исключить плотность пикселей из расчёта</label><br />
-    <label title="Skip hardware concurrency"><input type="checkbox" name="excludeHardwareConcurrency" />Исключить Hardware Concurrency из расчёта</label><br />
-  </form>
-  
-  <p>Your browser fingerprint: <strong id="fp"></strong></p>
-  <p><code id="time"/></p>
-  <p><span id="details"/></p>
-  <button type="button" id="btn">Get my fingerprint</button>
-  <script src="fingerprint2.js"></script>
-  <script>
-    $("#btn").on("click", function () {
-      var d1 = new Date();
-      var fp = new Fingerprint2();
-      fp.get(function(result, components) {
-        var d2 = new Date();
-        var timeString = "Time took to calculate the fingerprint: " + (d2 - d1) + "ms";
-        var details = "<strong>Detailed information: </strong><br />";
-        if(typeof window.console !== "undefined") {
-          console.log(timeString);
-          console.log(result);
-          for (var index in components) {
-            var obj = components[index];
-            var value = obj.value;
-            var line = obj.key + " = " + value.toString().substr(0, 100);
-            console.log(line);
-            details += line + "<br />";
-          }
-        }
-        $("#details").html(details);
-        $("#fp").text(result);
-        $("#time").text(timeString);
-      });
-    });
-  </script>
-</body>
+   <head>
+      <title>Fingerprintjs2</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="fingerprint2.js"></script>
+      <style>
+         body{
+         font-family: sans-serif;
+         max-width: 48em;
+         margin: auto;
+         padding: 0 5%;
+         background: #222;
+         color: #fff;
+         }
+         h1 {
+         margin: 2em 0 0;
+         }
+         p {
+         font-size: 1.2em
+         }
+         input[type=button]{
+         border: none;
+         color: #fff;
+         font-size: 1.2em;
+         background: #27e;
+         padding: 0.5em 0.75em 0.6em;
+         margin: 2em 0em 2em 0em;
+         border-radius: 3px;
+         box-shadow: 0 3px 0 #05c;
+         outline: none;
+         }
+         input[type=button]:active {
+         transform: translateY(3px);
+         box-shadow: none;
+         }
+         strong {
+         display: block;
+         letter-spacing: 1px;
+         word-wrap: break-word;
+         }
+         input[type=checkbox] {
+         -ms-transform: scale(15);
+         -moz-transform: scale(1.5);
+         -webkit-transform: scale(1.5);
+         -o-transform: scale(1.5);
+         padding: 10px;
+         margin: 10px;
+         }
+         label {
+         font-size: 1.5em;
+         }
+         @media (min-width: 32em) {
+         h1 {
+         font-size: 4em;
+         }
+         strong {
+         font-size: 1.5em;
+         }
+         }
+      </style>
+	  <script>
+		function printFingerprint() {
+		    var container = document.getElementById('container');
+			container.innerHTML = "";
+			var fp1 = new Fingerprint2();
+			var fp2 = new Fingerprint2({excludeWebGL: true});
+			var fp3 = new Fingerprint2({excludeWebGL: true, excludeUserAgent: true});
+			var resultFunc = function(result) {
+				var p = document.createElement('p');
+				p.innerHTML = result;
+				container.append(p);
+			}
+			fp1.get(resultFunc);
+			fp2.get(resultFunc);
+			fp3.get(resultFunc);
+		}
+      </script>
+   </head>
+   <body>
+      <h1>Fingerprintjs2</h1>
+	  <input type="button" value="Get my fingerprint" onclick="printFingerprint()">
+      <p>Your browser fingerprint:</p>
+      <div id="container"></div>
+   </body>
 </html>
