@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
    <head>
       <title>Fingerprintjs2</title>
@@ -20,18 +20,18 @@
          p {
          font-size: 1.2em
          }
-         button {
+         input[type=button]{
          border: none;
          color: #fff;
          font-size: 1.2em;
          background: #27e;
          padding: 0.5em 0.75em 0.6em;
-         margin: 0em 0em 2em 0em;
+         margin: 2em 0em 2em 0em;
          border-radius: 3px;
          box-shadow: 0 3px 0 #05c;
          outline: none;
          }
-         button:active {
+         input[type=button]:active {
          transform: translateY(3px);
          box-shadow: none;
          }
@@ -60,26 +60,28 @@
          }
          }
       </style>
-   </head>
-   <body>
-      <h1>Fingerprintjs2</h1>
-      <p>Your browser fingerprint:</p>
-      <div id="container"></div>
-      <script>
-		$(window).on('load', function () {
+	  <script>
+		function printFingerprint() {
+		    var container = document.getElementById('container');
+			container.innerHTML = "";
 			var fp1 = new Fingerprint2();
 			var fp2 = new Fingerprint2({excludeWebGL: true});
 			var fp3 = new Fingerprint2({excludeWebGL: true, excludeUserAgent: true});
 			var resultFunc = function(result) {
 				var p = document.createElement('p');
-				var container = document.getElementById('container');
 				p.innerHTML = result;
 				container.append(p);
 			}
 			fp1.get(resultFunc);
 			fp2.get(resultFunc);
 			fp3.get(resultFunc);
-		});
+		}
       </script>
+   </head>
+   <body>
+      <h1>Fingerprintjs2</h1>
+	  <input type="button" value="Get my fingerprint" onclick="printFingerprint()">
+      <p>Your browser fingerprint:</p>
+      <div id="container"></div>
    </body>
 </html>
