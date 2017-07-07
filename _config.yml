@@ -2,7 +2,7 @@ title: Fingerprintjs2
 description: Modern & flexible browser fingerprinting library, a successor to the original fingerprintjs
 google_analytics: UA-42202458-2
 show_downloads: true
-theme: jekyll-theme-slate
+theme: jekyll-theme-cayman
 
 gems:
   - jekyll-mentions
