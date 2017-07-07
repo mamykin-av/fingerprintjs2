@@ -62,26 +62,26 @@
 </head>
 <body>
   <div id="container"></div>
-  <h1>Fingerprintjs2 OLOL</h1>
+  <h1>Fingerprintjs2</h1>
   
   <form>
     <br />
-    <label title="Specifies the dom element ID to be used for swf embedding"><input type="checkbox" name="swfContainerId" />Определяет ID dom-элемента, который используется для SWF вложения</label><br />
-    <label title="Specifies the path to FontList.sfw"><input type="checkbox" name="swfPath" />Определяет путь к FontList.sfw</label><br />
-    <label title="Specifies an array of user-defined fonts to increase font fingerprint entropy"><input type="checkbox" name="userDefinedFonts" />Определяет массив определённых пользователем шрифтов для увеличения точности определения шрифта</label><br />
-    <label title="User agent should not take part in FP calculation"><input type="checkbox" name="excludeUserAgent" />Не принимать в расчёт User Agent при расчёте Fingerprint</label><br />
-    <label title="Browser language"><input type="checkbox" name="excludeLanguage" />Язык браузера</label><br />
-    <label title="Color depth"><input type="checkbox" name="excludeColorDepth" />Глубина цвета</label><br />
-    <label title="Screen resolution"><input type="checkbox" name="excludeScreenResolution" />Разрешение экрана</label><br />
-    <label title="Clude available screen resolution"><input type="checkbox" name="excludeAvailableScreenResolution" />Доступное разрешение экрана</label><br />
-    <label title="User time zone"><input type="checkbox" name="excludeTimezoneOffset" />Часовой пояс пользователя</label><br />
-    <label title="User browser support of session storage"><input type="checkbox" name="excludeSessionStorage" />Поддерживается ли браузером хранилище сессий</label><br />
-    <label title="User browser support of IndexedDB"><input type="checkbox" name="excludeIndexedDB" />Поддерживается ли индексированная БД браузером</label><br />
-    <label title="IE specific 'AddBehavior' method detection"><input type="checkbox" name="excludeAddBehavior" />Опредление уникалього метода 'AddBehavior' для IE</label><br />
-    <label title="User browser support of OpenDatabase"><input type="checkbox" name="excludeOpenDatabase" />Поддерживается ли браузером OpenDatabase</label><br />
-    <label title="Detection of CPU class"><input type="checkbox" name="excludeCpuClass" />Определение класса процессора</label><br />
-    <label title="Detection of OS platform"><input type="checkbox" name="excludePlatform" />Определение ОС</label><br />
-    <label title="Is DoNotTrack set"><input type="checkbox" name="excludeDoNotTrack" />Установлено ли 'Не отслеживать'</label><br />
+    <label title="Specifies the dom element ID to be used for swf embedding"><input type="checkbox" name="swfContainerId" />Изменить ID dom-элемента, который используется для SWF вложения</label><br />
+    <label title="Specifies the path to FontList.sfw"><input type="checkbox" name="swfPath" />Изменить путь к FontList.sfw</label><br />
+    <label title="Specifies an array of user-defined fonts to increase font fingerprint entropy"><input type="checkbox" name="userDefinedFonts" />Изменить массив определённых пользователем шрифтов для увеличения точности определения шрифта</label><br />
+    <label title="User agent should not take part in FP calculation"><input type="checkbox" name="excludeUserAgent" />Исключить из расчёта User Agent при расчёте Fingerprint</label><br />
+    <label title="Browser language"><input type="checkbox" name="excludeLanguage" />Исключить зык браузера</label><br />
+    <label title="Color depth"><input type="checkbox" name="excludeColorDepth" />Исключить глубину цвета</label><br />
+    <label title="Screen resolution"><input type="checkbox" name="excludeScreenResolution" />Исключить разрешение экрана</label><br />
+    <label title="Clude available screen resolution"><input type="checkbox" name="excludeAvailableScreenResolution" />Исключить доступное разрешение экрана</label><br />
+    <label title="User time zone"><input type="checkbox" name="excludeTimezoneOffset" />Исключить часовой пояс пользователя</label><br />
+    <label title="User browser support of session storage"><input type="checkbox" name="excludeSessionStorage" />Исключить определение поддержки браузером хранилища сессий</label><br />
+    <label title="User browser support of IndexedDB"><input type="checkbox" name="excludeIndexedDB" />Исключить определение поддержки индексированной БД браузером</label><br />
+    <label title="IE specific 'AddBehavior' method detection"><input type="checkbox" name="excludeAddBehavior" />Исключить определение уникального метода 'AddBehavior' для IE</label><br />
+    <label title="User browser support of OpenDatabase"><input type="checkbox" name="excludeOpenDatabase" />Исключить определение поддержки браузером OpenDatabase</label><br />
+    <label title="Detection of CPU class"><input type="checkbox" name="excludeCpuClass" />Исключить определение класса процессора</label><br />
+    <label title="Detection of OS platform"><input type="checkbox" name="excludePlatform" />Исключить определение ОС</label><br />
+    <label title="Is DoNotTrack set"><input type="checkbox" name="excludeDoNotTrack" />Исключить определения флага 'Не отслеживать'</label><br />
     <label title="Skip canvas fingerprinting entirely (you will most likely not need to set this to true)"><input type="checkbox" name="excludeCanvas" />Полностью исключить Canvas из расчёта</label><br />
     <label title="Skip WebGL fingerprinting"><input type="checkbox" name="excludeWebGL" />Исключить WebGL из расчёта</label><br />
     <label title="Skip AdBlock detection"><input type="checkbox" name="excludeAdBlock" />Исключить AdBlock из расчёта</label><br />
