@@ -67,6 +67,8 @@
 			var fp1 = new Fingerprint2();
 			var fp2 = new Fingerprint2({excludeWebGL: true});
 			var fp3 = new Fingerprint2({excludeWebGL: true, excludeUserAgent: true});
+			var fp4 = new Fingerprint2({excludeUserAgent: true, excludeLanguage: true, excludeSessionStorage: true, excludeOpenDatabase: true, excludeWebGL: true});
+			//(user_agent, language, local_storage, open_database, webgl)
 			var resultFunc = function(result, components) {
 				var resultP = document.createElement('p');
 				resultP.innerHTML = result;
@@ -87,6 +89,7 @@
 			fp1.get(resultFunc);
 			fp2.get(resultFunc);
 			fp3.get(resultFunc);
+			fp4.get(resultFunc);
 		}
       </script>
    </head>
