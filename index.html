@@ -44,6 +44,10 @@
       letter-spacing: 1px;
       word-wrap: break-word;
     }
+    
+    label {
+      font-size: 2em
+    }
 
     @media (min-width: 32em) {
       h1 {
@@ -61,6 +65,7 @@
   <h1>Fingerprintjs2 OLOL</h1>
   
   <form>
+    <br />
     <label title="Specifies the dom element ID to be used for swf embedding"><input type="checkbox" name="swfContainerId" />Определяет ID dom-элемента, который используется для SWF вложения</label><br />
     <label title="Specifies the path to FontList.sfw"><input type="checkbox" name="swfPath" />Определяет путь к FontList.sfw</label><br />
     <label title="Specifies an array of user-defined fonts to increase font fingerprint entropy"><input type="checkbox" name="userDefinedFonts" />Определяет массив определённых пользователем шрифтов для увеличения точности определения шрифта</label><br />
