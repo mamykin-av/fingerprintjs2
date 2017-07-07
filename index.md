@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <title>Fingerprintjs2 test</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject_src.js"></script>
+</head>
+<body>
+  <div id="container"></div>
+  <h1>Your browser fingerprint:</h1>
+  <h2><i id="fp"/></h2>
+  <script src="fingerprint2.js"></script>
+  <script>
+    var d1 = new Date();
+    var fp = new Fingerprint2();
+    fp.get(function(result) {
+      var d2 = new Date();
+      console.log("Time took to calculate the fingerprint: " + (d2 - d1) + "ms");
+      console.log(result);
+      document.getElementById("fp").innerHTML = result;
+    });
+  </script>
+</body>
+</html>
