@@ -64,11 +64,12 @@
 <body>
   <div id="container"></div>
   <h1>Fingerprintjs2</h1>
-  <p>Your browser fingerprint: <strong id="fp"></strong></p>
-  <p><code id="time"/></p>
-  <p><span id="details"/></p>
+  <p>Your browser fingerprint:</p>
+  <p><strong id="fp"></strong></p>
   <script>
+	var options1 = 
     $(window).on('load', function () {
+		var count = 5;
       var d1 = new Date();
       var fp = new Fingerprint2();
       fp.get(function(result, components) {
@@ -86,9 +87,13 @@
             details += line + "<br />";
           }
         }
-        $("#details").html(details);
         $("#fp").text(result);
-        $("#time").text(timeString);
+		for (var i = 0; i < count; i++) {
+			var p = document.createElement('p');
+			var container = document.getElementById('container');
+			p.innerHTML = result;
+			container.add(p);
+		}
       });
     });
   </script>
