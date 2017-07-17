@@ -89,8 +89,8 @@
           }
           values.push(value);
         });
-        return "test";
-        //var murmur = that.x64hash128(values.join("~~~"), 31);
+        var murmur = that.x64hash128(values.join("~~~"), 31);
+        return done("test", newKeys);
         //return done(murmur, newKeys);
       });
     },
