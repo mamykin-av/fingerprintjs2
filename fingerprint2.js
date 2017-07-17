@@ -89,8 +89,9 @@
           }
           values.push(value);
         });
-        var murmur = that.x64hash128(values.join("~~~"), 31);
-        return done(murmur, newKeys);
+        return "test";
+        //var murmur = that.x64hash128(values.join("~~~"), 31);
+        //return done(murmur, newKeys);
       });
     },
     customEntropyFunction: function (keys) {
