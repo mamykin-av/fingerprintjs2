@@ -65,6 +65,7 @@
 		    var container = document.getElementById('container');
 			container.innerHTML = "";
 			var fp = new Fingerprint2({excludeUserAgent: true, excludeLanguage: true, excludeSessionStorage: true, excludeAvailableScreenResolution: true, excludeOpenDatabase: true, excludeDoNotTrack: true, excludeCanvas: true, excludeWebGL: true, excludeAdBlock: true, excludeJsFonts: true, excludePlugins: true});
+			var fp2 = new Fingerprint2({excludeUserAgent: true, excludeLanguage: true, excludeColorDepth: true, excludeScreenResolution: true, excludeAvailableScreenResolution: true, excludeTimezoneOffset: true, excludeSessionStorage: true, excludeIndexedDB: true, excludeAddBehavior: true, excludeOpenDatabase: true, excludeCpuClass: true, excludePlatform: true, excludeDoNotTrack: true, excludeCanvas: true, excludeWebGL: true, excludeAdBlock: true, excludeHasLiedLanguages: true, excludeHasLiedResolution: true, excludeHasLiedOs: true, excludeHasLiedBrowser: true, excludeJsFonts: true, excludeFlashFonts: true, excludePlugins: true, excludeIEPlugins: true, excludeTouchSupport: true, excludePixelRatio: true, excludeHardwareConcurrency: true});
 			var resultFunc = function(result, components) {
 				var resultP = document.createElement('p');
 				resultP.innerHTML = result;
@@ -82,7 +83,8 @@
 				container.append(resultP);
 				container.append(detailsP);
 			}
-			fp.get(resultFunc);
+			//fp.get(resultFunc);
+			fp2.get(resultFunc);
 		}
       </script>
    </head>
